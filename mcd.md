@@ -22,7 +22,7 @@ erDiagram
     string value
   }
 
-    Exercise ||--o{ Field_has_Fulfillment : has
+  Exercise ||--o{ Field_has_Fulfillment : has
   Exercise ||--|{ Field : has
   Exercise ||--|{ Fulfillment : has
   Field ||--|{ Fulfillment : has
