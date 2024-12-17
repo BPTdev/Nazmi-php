@@ -9,11 +9,11 @@ use App\Router\Route;
 use App\Router\Router;
 
 require_once '../vendor/autoload.php';
-require_once 'const.php';
+//require_once 'const.php';
 
 define('TEMPLATES_DIR', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR);
 
-DBConnection::setUp(DB_DNS, DB_USER, DB_PASSWORD);
+DBConnection::setUp('mysql:dbname=looper;host=localhost;port=3307;charset=utf8', 'root', '');
 
 $router = Router::getInstance();
 

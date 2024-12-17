@@ -17,6 +17,8 @@ class DBConnection {
         self::$dns = $dns;
         self::$user = $user;
         self::$password = $password;
+        self::$dbConnection = new self();
+
     }
 
     public static function getInstance(): DBConnection {
