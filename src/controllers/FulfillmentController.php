@@ -1,6 +1,13 @@
 <?php
 
-class Fulfillment {
+namespace App\Controllers;
+
+use App\Models\Exercise;
+use App\Models\Field; 
+use App\Database\Query;
+
+
+class FulfillmentController extends Controller {
     private int $id;
     private Exercise $exercise;
     private string $date;

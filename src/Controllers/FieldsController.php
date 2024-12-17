@@ -1,6 +1,8 @@
 <?php
+namespace App\Controllers;
 
-class Field {
+use App\Database\Query;
+class FieldsController extends Controller {
     private int $id;
     private Exercise $exercise;
     private string $label;
@@ -13,6 +15,7 @@ class Field {
 
     public function getId(): int {
         // Getter logic here
+        return $this->id;
     }
 
     public function setLabel(string $label): void {

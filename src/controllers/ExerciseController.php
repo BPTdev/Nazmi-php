@@ -5,15 +5,24 @@ namespace App\Controllers;
 use App\Database\Query;
 use App\Models\Field;
 
-class Exercise {
+class ExerciseController extends Controller {
     private int $id;
     private string $title;
     private Query $query;
 
-    public function __construct(array $params) {
+    public function __construct(array $params = []) {
         // Constructor logic here
+
+        
+        $this->id = $params['id'];
+        $this->title = $params['title'];
     }
 
+    public function index() {
+        // Logic to show exercise
+        $router = $this->router;
+        $this->view('site/index', compact('router'));
+    }
     public function getId(): int {
         // Getter logic here
         return $this->id;

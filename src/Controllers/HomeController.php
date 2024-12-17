@@ -2,14 +2,13 @@
 
 namespace App\Controllers;
 
-use App\Router\Router;
 
 class HomeController extends Controller
 {
     public function index(array $params=null): void
     {
 
-        $router = Router::getInstance();
+        $router = $this->router;
         $this->view('site/index', compact('router'));
     }
 
