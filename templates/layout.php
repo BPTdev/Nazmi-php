@@ -6,6 +6,10 @@
     <link rel="stylesheet" media="all" href="/assets/app.css">
     <script src="/assets/app.js"></script>
     <script src="/assets/views.js" defer></script>
+    <link rel="stylesheet" href="/css/create_style.css">
+    <link rel="stylesheet" href="/css/Home.css">
+    <link rel="stylesheet" href="/css/Fulfillments.css">
+    <link rel="stylesheet" href="/css/Fields.css">
 </head>
 
 <body>

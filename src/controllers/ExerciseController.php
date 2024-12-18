@@ -12,17 +12,36 @@ class ExerciseController extends Controller {
 
     public function __construct(array $params = []) {
         // Constructor logic here
-
+        parent::__construct();
         
-        $this->id = $params['id'];
-        $this->title = $params['title'];
     }
 
     public function index() {
         // Logic to show exercise
-        $router = $this->router;
-        $this->view('site/index', compact('router'));
+        
+        $this->view('exercises/index', [
+            'exercises' => $this->exerciseHelper->get(),
+            'router'    => $this->router,
+        ]);
     }
+
+    public function answering() {
+        // Logic to show exercise
+        
+        $this->view('exercises/answering', [
+            // 'exercises' => $this->exerciseHelper->get(),
+            'router'    => $this->router,
+        ]);
+    }
+    public function new() {
+        // Logic to show exercise
+        
+        $this->view('exercises/new', [
+            // 'exercises' => $this->exerciseHelper->get(),
+            'router'    => $this->router,
+        ]);
+    }
+
     public function getId(): int {
         // Getter logic here
         return $this->id;
