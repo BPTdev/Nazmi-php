@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Database\Query;
 use App\Models\Field;
 use App\Models\ExerciseHelper;
+use App\Models\Exercise;
 
 class ExerciseController extends Controller {
     private int $id;
@@ -38,10 +39,16 @@ class ExerciseController extends Controller {
     public function new() {
         // Logic to show exercise
         
-        $this->view('exercises/new', [
-            // 'exercises' => $this->exerciseHelper->get(),
-            'router'    => $this->router,
-        ]);
+        $params['router'] = $this->router;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $exercise = new Exercise(['title' => $_POST['title']]);
+            if ($exerciseId = $this->exerciseHelper->save($exercise)) {
+                $this->router->redirect('fields_index', ['exercise' => $exerciseId]);
+            }
+            $params["error"] = "Le titre est déjà utilisé. Veuillez en choisir un autre.";
+        }
+        $this->view('exercises/new', $params);
+
     }
 
     public function getId(): int {
@@ -49,9 +56,9 @@ class ExerciseController extends Controller {
         return $this->id;
     }
 
-    public function setTitle(string $title): void {
-        // Setter logic here
-        $this->title = $title;
+    public function getTitle(): string
+    {
+        return $this->title;
     }
 
     public function getFields(int $fieldId): array {

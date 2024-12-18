@@ -1,32 +1,29 @@
 <?php
+
 namespace App\Controllers;
 
-use App\Database\Query;
-class FieldsController extends Controller {
-    private int $id;
-    private Exercise $exercise;
-    private string $label;
-    private string $valueKind;
-    private Query $query;
+use App\Models\ExerciseHelper;
+use App\Models\Field;
 
-    public function __construct(array $params) {
-        // Constructor logic here
+class FieldsController extends Controller
+{
+    protected ExerciseHelper $exerciseHelper;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->exerciseHelper = new ExerciseHelper();
     }
 
-    public function getId(): int {
-        // Getter logic here
-        return $this->id;
+    public function index(int $exerciseId) {
+        // Logic to show exercise
+        
+        $exercise = $this->exerciseHelper->get($exerciseId);
+        
+        $this->view('fields/index', [
+            'exercise' => $exercise,
+            'router'    => $this->router,
+        ]);
     }
 
-    public function setLabel(string $label): void {
-        // Setter logic here
-    }
-
-    public function setValueKind(string $valueKind): void {
-        // Setter logic here
-    }
-
-    public function update(): bool {
-        // Update logic here
-    }
 }
