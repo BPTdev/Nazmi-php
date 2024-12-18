@@ -6,9 +6,7 @@ use App\Database\DBConnection;
 use App\Database\Query;
 use PDOException;
 
-/**
- * This class provides methods for manipulating Exercise objects
- */
+
 class ExerciseHelper
 {
     protected Query $query;
@@ -18,13 +16,7 @@ class ExerciseHelper
         $this->query = new Query();
     }
 
-    /**
-     * Method to get one or all Exercise objects
-     *
-     * @param int|null $exerciseId optional parameter to specify the id of the Exercise object to retrieve
-     *
-     * @return array|Exercise returns an array of Exercise objects or a single Exercise object if an id is specified
-     */
+    
     public function get(int $exerciseId = null): array|Exercise
     {
         if (is_null($exerciseId)) {
@@ -34,13 +26,6 @@ class ExerciseHelper
         }
     }
 
-    /**
-     * Method to save a new or existing Exercise object
-     *
-     * @param Exercise $exercise the Exercise object to save
-     *
-     * @return int returns the id of the saved Exercise object
-     */
     public function save(Exercise $exercise): int
     {
         if (is_null($exercise->getId())) {
@@ -50,13 +35,7 @@ class ExerciseHelper
         }
     }
 
-    /**
-     * Private method to create a new Exercise object
-     *
-     * @param Exercise $exercise the Exercise object to create
-     *
-     * @return int returns the id of the created Exercise object
-     */
+
     private function create(Exercise $exercise): int
     {
         try {
@@ -71,13 +50,7 @@ class ExerciseHelper
         }
     }
 
-    /**
-     * Private method to update an existing Exercise object
-     *
-     * @param Exercise $exercise the Exercise object to update
-     *
-     * @return int returns the id of the updated Exercise object
-     */
+
     private function update(Exercise $exercise): int
     {
         try {
@@ -94,13 +67,6 @@ class ExerciseHelper
         }
     }
 
-    /**
-     * Method to delete an Exercise object
-     *
-     * @param int $exerciseId the id of the Exercise object to delete
-     *
-     * @return bool returns true if the Exercise object was successfully deleted, false otherwise
-     */
     public function delete(int $exerciseId): bool
     {
         $exercise = $this->get($exerciseId);

@@ -7,8 +7,8 @@ class Query {
 
     protected DBConnection $dbConnection;
 
-    public function __construct(DBConnection $db) {
-        $this->db = $db;
+    public function __construct() {
+        $this->dbConnection = DBConnection::getInstance();
     }
 
     public function select(

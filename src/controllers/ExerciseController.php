@@ -4,16 +4,18 @@ namespace App\Controllers;
 
 use App\Database\Query;
 use App\Models\Field;
+use App\Models\ExerciseHelper;
 
 class ExerciseController extends Controller {
     private int $id;
     private string $title;
+    private ExerciseHelper $exerciseHelper;
     private Query $query;
 
     public function __construct(array $params = []) {
         // Constructor logic here
         parent::__construct();
-        
+        $this->exerciseHelper = new ExerciseHelper();
     }
 
     public function index() {
@@ -29,7 +31,7 @@ class ExerciseController extends Controller {
         // Logic to show exercise
         
         $this->view('exercises/answering', [
-            // 'exercises' => $this->exerciseHelper->get(),
+            'exercises' => $this->exerciseHelper->get(),
             'router'    => $this->router,
         ]);
     }
