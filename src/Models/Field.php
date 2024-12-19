@@ -14,6 +14,8 @@ class Field
     protected Query    $query;
     protected string $name;
     protected string $description;
+    public ?int $exercises_id = null; // Ou adaptez le type selon vos besoins
+
 
     public function __construct(array $params = [])
     {
