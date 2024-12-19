@@ -84,4 +84,29 @@ class ExerciseController extends Controller {
     public function getFulfillments(int $fulfillmentId): array {
         // Logic to get fulfillments
     }
+    public function state(int $exerciseId, string $query)
+    {
+        parse_str($query, $params);
+
+        $exercise = $this->exerciseHelper->get($exerciseId);
+        $exercise->setState($params['state']);
+
+        $this->exerciseHelper->save($exercise);
+
+        //$this->router->redirect('exercises_index');
+        $this->view('exercises/index', [
+            'exercises' => $this->exerciseHelper->get(),
+            'router'    => $this->router,
+        ]);
+    }
+
+
+
+
+
+
+
+
+
+
 }
