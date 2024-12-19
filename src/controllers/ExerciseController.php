@@ -77,7 +77,7 @@ class ExerciseController extends Controller {
     public function deleteField(Field $field): void {
         // Logic to delete field
         $params = [':fieldId' => $field->getId()];
-        $this->query->delete('fields', 'id = :fieldId', $params);
+        $this->query->delete('fields',Field::class, 'id = :fieldId', $params);
         
     }
 

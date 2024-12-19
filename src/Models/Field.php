@@ -12,6 +12,8 @@ class Field
     protected string   $label;
     protected string   $value_kind;
     protected Query    $query;
+    protected string $name;
+    protected string $description;
 
     public function __construct(array $params = [])
     {
@@ -23,12 +25,22 @@ class Field
             $this->value_kind = $params['value_kind'];
         }
     }
-
     public function getId(): int
     {
         return $this->id;
     }
-
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+    public function getName(): string
+    {
+        return $this->name;
+    }
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
     public function getLabel(): string
     {
         return $this->label;
