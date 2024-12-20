@@ -1,47 +1,46 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers; // Defines the namespace for the controller
 
-use App\Models\Exercise;
-use App\Models\Field; 
-use App\Database\Query;
-
+use App\Models\Exercise; // Imports the Exercise model
+use App\Models\Field; // Imports the Field model
+use App\Database\Query; // Imports the Query class
 
 class FulfillmentController extends Controller {
-    private int $id;
-    private Exercise $exercise;
-    private string $date;
-    private Query $query;
+    private int $id; // Private property to store the ID
+    private Exercise $exercise; // Private property to store the Exercise instance
+    private string $date; // Private property to store the date
+    private Query $query; // Private property to store the Query instance
 
     public function __construct(array $params) {
         // Constructor logic here
     }
 
     public function getId(): int {
-        // Getter logic here
+        // Returns the ID
     }
 
     public function getDate(): string {
-        // Getter logic here
+        // Returns the date
     }
 
     public function save(array $answers): int {
-        // Save logic here
+        // Saves the provided answers and returns an integer
     }
 
     public function create(array $answers): int {
-        // Create logic here
+        // Creates a new entry with the provided answers and returns an integer
     }
 
     public function update(array $answers): int {
-        // Update logic here
+        // Updates an entry with the provided answers and returns an integer
     }
 
     public function getValue(Field $field): string {
-        // Logic to get value
+        // Retrieves the value of a specified field and returns it as a string
     }
 
     public function delete(): void {
-        // Delete logic here
+        // Deletes the current entry
     }
 }
