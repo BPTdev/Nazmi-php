@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?></title>
-    <link rel="stylesheet" href="/css/milligram.min.css">
-    <script
-        src="https://kit.fontawesome.com/3eb46088b9.js"
-        crossorigin="anonymous"></script>
-
-
     <title>ExerciseLooper</title>
-    <link rel="stylesheet" media="all" href="/css/milligram.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" media="all" href="/assets/app.css">
     <script src="/assets/app.js"></script>
     <script src="/assets/views.js" defer></script>
     <link rel="stylesheet" href="/css/create_style.css">
@@ -23,16 +13,14 @@
 </head>
 
 <body>
-
-    <div id="page">
-    <?php    if (isset($params['isHome']) and $params['isHome']): ?>
+<?php
+if (isset($params['isHome']) and $params['isHome']): ?>
     <header class="dashboard">
         <section class="container">
             <p><img src="/assets/logo.png"></p>
             <h1>Exercise<br>Looper</h1>
         </section>
     </header>
-    
 <?php
 else: ?>
     <header class="heading <?= $headerColor ?? null ?>">
@@ -44,9 +32,11 @@ else: ?>
     </header>
 <?php
 endif; ?>
-        <?php echo $content ?>
-    </div>
-    
-</body>
 
+<main class="container">
+    <title>ExerciseLooper</title>
+    <?= $content ?? null ?>
+</main>
+<div style="position: static !important;"></div>
+</body>
 </html>
